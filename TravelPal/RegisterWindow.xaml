@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="Register" Height="450" Width="600" ResizeMode="NoResize" Background="MintCream">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
         
+        <Label Content="Register" FontFamily="Arial" FontSize="40" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+
+        <Label Content="Username: " Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
+        <TextBox Name="registerUsername" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200" />
+
+        <Label Content="Password: " Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
+        <PasswordBox Name="registerPassword" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200"/>
+        
+        <!--TODO: -->
+        <!-- Insert MessageBox - if user is in use. "Sorry, this user is already in use. Choose another one. -->
+        <Button Content="Register" Foreground="SkyBlue" Grid.Row="5" Grid.Column="3" Width="80" HorizontalAlignment="Center" Height ="30" />
+       <!--Tillbaka till main window efter att ha registrerats-->
+        
+
+
     </Grid>
 </Window>

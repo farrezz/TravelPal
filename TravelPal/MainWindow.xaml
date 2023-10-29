@@ -25,17 +25,19 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Content="TravelPal" FontFamily="Arial" FontSize="60" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Label Content="TravelPal" FontFamily="Arial" FontSize="55" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
         
         <Label Content="Username:" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
-        <TextBox Name="UsernameTextBox" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan ="2" Height="30" Width="200" />
+        <TextBox Name="UsernameTextBox" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200" />
 
         <Label Content="Password:" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
-        <PasswordBox Name="PasswordBox" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan ="2" Height="30" Width="200"/>
+        <PasswordBox Name="PasswordBox" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200"/>
         
         <Button Content="Sign In" Grid.Row="5" Grid.Column="3" Width="80" HorizontalAlignment="Center" Height="30" />
 
-        <Button Content="Register" Grid.Row="5" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height ="30" />
+        <Button Content="Register" Foreground="SkyBlue" Grid.Row="5" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height ="30" />
+        <!--TODO-->
+        <!--Om lösenord eller användarnamn fel: varningsmeddelande-->
 
     </Grid>
 </Window>

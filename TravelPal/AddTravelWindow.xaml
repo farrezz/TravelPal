@@ -4,9 +4,49 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
-        mc:Ignorable="d"
-        Title="AddTravelWindow" Height="450" Width="800">
+        Title="TravelPal" Height="450" Width="600" ResizeMode="NoResize" Background="MintCream">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Content="Add your trip" FontFamily="Arial" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="left" VerticalAlignment="Center" FontWeight="Bold"/>
+
         
+        <TextBox Name="txtbCountry" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Height="20" Width="125" />
+        <Label Content="Country: " Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
+        <TextBox Name="txtbCity" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Height="20" Width="125" />
+        <Label Content="City: " Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
+        <TextBox Name="txtbPassangers" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Height="20" Width="125" />
+        <Label Content="Passanger(s): " Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
+        <!--TODO: -->
+        <!--Om ingen resa är markerad: MessageBox. "Choose a destination to see the details or to remove it" -->
+        <ComboBox Name="cb1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" Width="80" Height="15"/>
+        <Button Content="Delete" Name="bttnDelete" Grid.Row="5" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height="15" FontSize="10"/>
+        
+        <!--för att välja ett land som resan ska till???????-->
+        <!--ComboBox Name="cb2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" Width="80" Height="15"-->
+
+
+        <!--TODO: -->
+        <!-- Om textbox tom: Varningsruta om att fylla i alla uppgifter -->
+        <Button Content="Add trip" Name="bttnSave" Grid.Row="6" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="10"/>
+
+
+
     </Grid>
 </Window>

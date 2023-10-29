@@ -23,5 +23,10 @@ namespace TravelPal
         {
             InitializeComponent();
         }
+
+        private void cb1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
