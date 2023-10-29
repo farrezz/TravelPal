@@ -32,4 +32,3 @@ namespace TravelPal.Manager
         }
     }
 }
-s

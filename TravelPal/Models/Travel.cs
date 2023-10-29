@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using TravelPal;
 
 namespace TravelPal.Models
 {
@@ -21,6 +22,7 @@ namespace TravelPal.Models
 
         public static List<Travel> PackingListItem{ get; set; } = new()
         {
+
         };
 
         public virtual string GetIno()
@@ -29,10 +31,8 @@ namespace TravelPal.Models
             Console.WriteLine("This is a test for GitHub commit");
 
             //TODO:
-            return "Information about the travel";
+            return $"Destination: {Destination}  Traveller(s): {Travellers}";
         }
 
-        
-        
-    }
+    };
 }
