@@ -35,9 +35,8 @@
         <Label Content="Passanger(s): " Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
         <!--TODO: -->
         <!--Om ingen resa är markerad: MessageBox. "Choose a destination to see the details or to remove it" -->
-        <ComboBox Name="cb1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" Width="80" Height="15"/>
-        <Button Content="Delete" Name="bttnDelete" Grid.Row="5" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height="15" FontSize="10"/>
-        
+        <ComboBox Name="cb1Travel" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Width="80" Height="15"/>
+
         <!--för att välja ett land som resan ska till???????-->
         <!--ComboBox Name="cb2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" Width="80" Height="15"-->
 

@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace TravelPal.Models
 {
-    internal class Admin : IUser
+     public class Admin : IUser
     {
-        [SetsRequiredMembers]
-        public Admin(string username, string password) : base (username, password)
+
+        public Admin(string username, string password)
         {
+
+            this.Password = password;
+            this.Username = username;
 
         }
 
-
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

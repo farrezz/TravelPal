@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace TravelPal.Models
 {
-    internal class IUser
+    public interface IUser
     {
-        public required string Username { get; set; }
-        public required string Password { get; set; }
 
-        [SetsRequiredMembers]
-        public IUser(string username, string password)
-        {
-            Username = username;
-            Password = password;
-        }
+
+        public  string Username { get; set; }
+        public  string Password { get; set; }
+
     }
 }

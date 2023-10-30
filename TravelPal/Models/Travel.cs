@@ -19,11 +19,13 @@ namespace TravelPal.Models
             Destination  = destination;
             Travellers = travellers;
         }
-
+/*
         public static List<Travel> PackingListItem{ get; set; } = new()
         {
 
         };
+
+   */
 
         public virtual string GetIno()
         {

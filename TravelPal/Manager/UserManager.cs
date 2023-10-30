@@ -11,24 +11,27 @@ namespace TravelPal.Manager
     {
         public static List<IUser> Users { get; set; } = new()
         {
+            new User("User", "password"),
+            new Admin ("Admin", "passord")
         };
 
         //Har i uppgift att ta emot Username och password
         public static IUser? SignedInUser { get; set; }
 
         //Metoden tar emot två parametrar
-        public static IUser? AddUser(string username, string password)
+        public static IUser AddUser(string username, string password)
         {
             if (ValidateUsername(username))
             {
-                IUser newUser = new(username, password);
+                User newUser = new(username, password);
 
                 Users.Add(newUser);
 
                 return newUser;
             }
+            //Error: när användaren är redan upptagen. hanterar felhanteringar och slänger ut nedanför meddelande.
+            throw new UsernameTaken("Username is already in use. Enter a new one");
 
-            return null;
         }
         // Returnerar en bool. Validerar om användarnamnet finns i listan Users
         //returnerar sant om det finns, annars fa

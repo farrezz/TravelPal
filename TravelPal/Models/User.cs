@@ -10,14 +10,15 @@ namespace TravelPal.Models
 {
     internal class User : IUser
     {
-        
-        public static List<User> Users { get; set; } = new()
-        {
-        };
 
-        [SetsRequiredMembers]
-        public User (string username, string password) : base(username, password) 
-{
+        public static List<Travel>  Travels { get; set; } = new();
+
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public User (string username, string password)
+        {
+            this.Username = username;
+            this.Password = password;
 
         }
     }
