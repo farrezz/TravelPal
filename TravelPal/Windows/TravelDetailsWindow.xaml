@@ -27,9 +27,16 @@
         </Grid.RowDefinitions>
         <Label Content = "Your trip" FontFamily="Arial" FontSize="30" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
 
-        <ListView VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name = "lstDestination" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="Black">
-        </ListView>
+        <Label Content="Destination: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <Label Content="City: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Traveller(s): " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbTravellers" IsEnabled="False"/>
+        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbCity" IsEnabled="False"/>
+        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbDestination" IsEnabled="False"/>
 
+
+     
 
 
 
