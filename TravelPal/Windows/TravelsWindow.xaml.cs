@@ -23,5 +23,10 @@ namespace TravelPal
         {
             InitializeComponent();
         }
+
+        private void bttnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("An app for your travels. Add, delete or View details of your trip. An Easy app to use", "Information");
+        }
     }
 }

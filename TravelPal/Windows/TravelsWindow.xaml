@@ -39,8 +39,8 @@
         <Button Content="Details" Name="bttnDetails" Grid.Row="5" Grid.Column="1" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="10"/>
         <Button Content="Add travel" Name="bttnAddTravel" Grid.Row="4" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12"/>
         <!--TODO: -->
-        <!--Information om TravelPal-->
-        <Button Content="Information" Name="bttnInfo" Grid.Row="3" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12"/>
+        <!--Information om TravelPal.. Message.Box?-->
+        <Button Content="Information" x:Name="bttnInfo" Grid.Row="3" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12" Click="bttnInfo_Click"/>
         <!--TODO: -->
         <!--Ska återgå till the main window när man loggar ut-->
         <Button Content="Sign out" Name="bttSignOut" Grid.Row="6" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="9"/>

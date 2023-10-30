@@ -32,11 +32,11 @@
         <TextBox Name="registerUsername" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200" />
 
         <Label Content="Password: " Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontWeight="Black"/>
-        <PasswordBox Name="registerPassword" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200"/>
+        <TextBox Name="registerPassword" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan ="2" Height="25" Width="200"/>
         
         <!--TODO: -->
         <!-- Insert MessageBox - if user is in use. "Sorry, this user is already in use. Choose another one. -->
-        <Button Content="Register" Foreground="SkyBlue" Grid.Row="5" Grid.Column="3" Width="80" HorizontalAlignment="Center" Height ="30" />
+        <Button Content="Register" Foreground="SkyBlue" Grid.Row="5" Grid.Column="3" Width="80" HorizontalAlignment="Center" Height ="30" Click="Button_Click" />
        <!--Tillbaka till main window efter att ha registrerats-->
         
 
