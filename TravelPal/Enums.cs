@@ -1,6 +1,10 @@
 ﻿namespace TravelPal
 {
-
+    public enum Type
+    {
+        Vacation,
+        Work_trip
+    }
     public enum Country
     {
         Afghanistan,

@@ -10,7 +10,7 @@ namespace TravelPal.Models
     {
         public bool AllInclusive { get; set; }
 
-        public Vacation(bool allInclusive,string destination,int travellers) : base (destination, travellers)
+        public Vacation(bool allInclusive,string destination, string city, int travellers) : base (destination, city, travellers)
         {
 
             AllInclusive = allInclusive;
@@ -19,8 +19,8 @@ namespace TravelPal.Models
 
         public string GetInfo()
         {
-           return  $"{Destination}, {Travellers}, {AllInclusive}";
-
+           return  $"{Country}, {City}, {Passangers}, {AllInclusive}";
+    
         }
 
     }

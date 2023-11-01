@@ -10,8 +10,8 @@ namespace TravelPal.Models
 {
     internal class User : IUser
     {
-
-        public static List<Travel>  Travels { get; set; } = new();
+        //ej static för reseinformationen berör endast till en enda användare
+        public List<Travel> Travels { get; set; } = new();
 
         public string Username { get; set; }
         public string Password { get; set; }

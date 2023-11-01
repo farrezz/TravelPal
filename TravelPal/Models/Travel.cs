@@ -10,14 +10,17 @@ namespace TravelPal.Models
 {
     internal class Travel
     {
-        public string? Destination { get; set; }
-        public int? Travellers { get; set; }
+        public string? Country { get; set; }
+        public string? City{ get; set; }
+        public int? Passangers { get; set; }
+
 
         //Constructior som "setter" resan.
-        public Travel (string destination, int travellers)
+        public Travel(string country, string city, int passangers)
         {
-            Destination  = destination;
-            Travellers = travellers;
+            Country = country;
+            Passangers = passangers;
+            City = city;
         }
 /*
         public static List<Travel> PackingListItem{ get; set; } = new()
@@ -25,8 +28,7 @@ namespace TravelPal.Models
 
         };
 
-   */
-
+   
         public virtual string GetIno()
         {
 
@@ -35,6 +37,7 @@ namespace TravelPal.Models
             //TODO:
             return $"Destination: {Destination}  Traveller(s): {Travellers}";
         }
+*/
 
     };
 }

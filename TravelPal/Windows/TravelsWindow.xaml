@@ -28,22 +28,22 @@
         <Label Content="Welcome" FontFamily="Arial" FontSize="25" Grid.Column="1" Grid.Row="1" HorizontalAlignment="left" VerticalAlignment="Center" FontWeight="Bold"/>
 
         <Label Content="Current user: " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="12"/>
-        <TextBox Name="displayUsername" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Height="15" Width="125" />
-        <ListView VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name = "lstDestination" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black">
-        </ListView>
-        <Label Content="Destination " Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="left" Margin="5" FontWeight="Black"/>
+        <TextBox Name="displayUsername" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Width="125" TextChanged="displayUsername_TextChanged" Margin="0,8,0,7" />
+        <ListBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name = "lstDestination" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" SelectionChanged="lstDestination_SelectionChanged">
+        </ListBox>
+        <Label Content="Travel information " Grid.Row="2" Grid.Column="1" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="5" FontWeight="Black"/>
         <!--TODO: -->
         <!--Om ingen resa är markerad: MessageBox. "Choose a destination to see the details or to remove it" -->
         <Button Content="Delete" Name="bttnDelete" Grid.Row="5" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height="15" FontSize="10"/>
-        
-        <Button Content="Details" Name="bttnDetails" Grid.Row="5" Grid.Column="1" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="10"/>
-        <Button Content="Add travel" Name="bttnAddTravel" Grid.Row="4" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12"/>
+
+        <Button Content="Details" Name="bttnDetails" Grid.Row="5" Grid.Column="1" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="10" Click="bttnDetails_Click"/>
+        <Button Content="Add travel" Name="bttnAddTravel" Grid.Row="4" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12" Click="bttnAddTravel_Click"/>
         <!--TODO: -->
         <!--Information om TravelPal.. Message.Box?-->
         <Button Content="Information" x:Name="bttnInfo" Grid.Row="3" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12" Click="bttnInfo_Click"/>
         <!--TODO: -->
         <!--Ska återgå till the main window när man loggar ut-->
-        <Button Content="Sign out" Name="bttSignOut" Grid.Row="6" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="9"/>
+        <Button Content="Sign out" Name="bttSignOut" Grid.Row="6" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="9" Click="bttSignOut_Click"/>
 
     </Grid>
 </Window>

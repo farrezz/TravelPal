@@ -12,7 +12,7 @@ namespace TravelPal.Manager
         public static List<IUser> Users { get; set; } = new()
         {
             new User("User", "password"),
-            new Admin ("Admin", "passord")
+            new Admin ("Admin", "password")
         };
 
         //Har i uppgift att ta emot Username och password

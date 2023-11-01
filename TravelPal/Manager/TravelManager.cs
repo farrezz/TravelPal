@@ -9,9 +9,8 @@ namespace TravelPal.Manager
 {
     internal class TravelManager
     {
-        // en lista med packning där initializeras 
+    
         public static List<Travel> Travels { get; set; } = new();
- 
 
         //En metod som lägger till resor i "travels" listan. 
         //Parametern  tar emot objekt - Travel med en "variabel" namn travel. 

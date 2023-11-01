@@ -10,7 +10,7 @@ namespace TravelPal.Models
     {
         public string MeetingDetails { get; set; }
 
-        public WorkTrip(string meetingDetails, string destination, int travellers) : base (destination, travellers) 
+        public WorkTrip(string meetingDetails, string destination, string city, int travellers) : base (destination, city, travellers) 
         {
             MeetingDetails = meetingDetails;
         }
@@ -18,7 +18,10 @@ namespace TravelPal.Models
 
         public string? GetInfo()
         {
-            return "Get information about worktrip";
+                  
+           return $"{Country}, {City}, {Passangers}, {MeetingDetails}";
+
+            
         }
 
     }
