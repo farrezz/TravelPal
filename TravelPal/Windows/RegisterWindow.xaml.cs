@@ -50,15 +50,16 @@ namespace TravelPal
 
                     MessageBox.Show("Please enter a password!", "Warning");
                 }
-                // loopar genom alla användarnamn i listan, Om användaren är i bruk meddelas detta. 
+                // loopar genom alla användarnamn i listan, Om användaren är i bruk så poppar en varningsruta upp. 
                 else
                 {
+ 
                     foreach (var user in UserManager.Users)
                     {
                         if (user.Username == username)
                         {
                             usernameExists = true;
-                            break;
+                            
                         }
                     }
                 }

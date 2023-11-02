@@ -34,7 +34,7 @@
         <Label Content="Travel information " Grid.Row="2" Grid.Column="1" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="5" FontWeight="Black"/>
         <!--TODO: -->
         <!--Om ingen resa är markerad: MessageBox. "Choose a destination to see the details or to remove it" -->
-        <Button Content="Delete" Name="bttnDelete" Grid.Row="5" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height="15" FontSize="10"/>
+        <Button Content="Delete" Name="bttnDelete" Grid.Row="5" Grid.Column="2" Width="80" HorizontalAlignment="Center" Height="15" FontSize="10" Click="bttnDelete_Click"/>
 
         <Button Content="Details" Name="bttnDetails" Grid.Row="5" Grid.Column="1" Width="80" HorizontalAlignment="Center" Height ="15" FontSize="10" Click="bttnDetails_Click"/>
         <Button Content="Add travel" Name="bttnAddTravel" Grid.Row="4" Grid.Column="4" Width="80" HorizontalAlignment="Center" Height ="25" FontSize="12" Click="bttnAddTravel_Click"/>

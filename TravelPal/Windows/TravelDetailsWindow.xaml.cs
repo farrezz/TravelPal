@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelPal.Manager;
+using TravelPal.Models;
 
 namespace TravelPal
 {
@@ -22,6 +24,12 @@ namespace TravelPal
         public TravelDetailsWindow()
         {
             InitializeComponent();
+
+            //txtb.Text = emp.FullName;
+           // txbDestination.
+
+
+            
         }
 
 
