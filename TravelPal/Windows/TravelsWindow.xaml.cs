@@ -33,7 +33,16 @@ namespace TravelPal
                 User signedInUser = (User)UserManager.SignedInUser;
 
                 displayUsername.Text = signedInUser.Username.ToString();
-                
+
+                // Displaya land i listview för användaren
+                foreach (Travel trip in TravelManager.Travels)
+                {
+                    ListViewItem destination = new();
+                    destination.Tag= trip;
+                    destination.Content = trip.Country;
+                    lstDestination.Items.Add(destination);
+                }
+                    
             }
             else if (UserManager.SignedInUser!.GetType() == typeof(Admin))
             {
@@ -44,6 +53,13 @@ namespace TravelPal
                 displayUsername.Text = signedInUser.Username.ToString();
 
                 //visa user listan
+                foreach (Travel trip in TravelManager.Travels)
+                {
+                    ListViewItem destination = new();
+                    destination.Tag = trip;
+                    destination.Content = trip.Country;
+                    lstDestination.Items.Add(destination);
+                }
             }
 
         }
@@ -75,30 +91,6 @@ namespace TravelPal
 
         private void lstDestination_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            if (lstDestination.Items.Count > 0)
-            {
-                ListBoxItem destination = (ListBoxItem)lstDestination.SelectedItem;
-
-                Travel selectedTrip = (Travel)destination.Tag;
-
-                //lstDestination.TextInput = selectedTrip.Country;
-                //lblPrio.Content = selectedTodo.Priority.ToString();
-            }
-            /*
-
-            var travel = lstDestination.SelectedItem as Travel;
-
-            if (travel != null)
-            {
-                foreach (var Travel in Travels)
-                {
-                    lstDestination.SelectedItem = Travel;
-
-                }
-            }
-
-            */
 
         }
 
@@ -174,10 +166,15 @@ namespace TravelPal
         private void bttnDelete_Click(object sender, RoutedEventArgs e)
         {
             // Kolla vilket item som är selectat i listan
-            ListBoxItem selectedItem = (ListBoxItem)lstDestination.SelectedItem;
-            
+            ListViewItem selectedItem = (ListViewItem)lstDestination.SelectedItem;
             // Ta bort det itemet från listView:en
             lstDestination.Items.Remove(selectedItem);
+
+            List<Travel> travels = (List<Travel>)lstDestination.ItemsSource;
+            travels.Remove((Travel)selectedItem.Content);
+
+            lstDestination.UpdateLayout(); 
+
         }
     }
 }

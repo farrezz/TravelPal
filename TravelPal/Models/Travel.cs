@@ -28,16 +28,13 @@ namespace TravelPal.Models
 
         };
 
-   
+   */
         public virtual string GetIno()
         {
 
-            Console.WriteLine("This is a test for GitHub commit");
-
             //TODO:
-            return $"Destination: {Destination}  Traveller(s): {Travellers}";
+            return $"Destination: {Country}, city:  {City}, Traveller(s): {Passangers}";
         }
-*/
 
     };
 }

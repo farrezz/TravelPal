@@ -75,9 +75,7 @@ namespace TravelPal
 
                 List<IUser> Users = new();
                 // Skapa en user
-  
                 // Lägg till usern i listan
-                //fråga vfr denna kod är så lång och varför jag inte kan ha Users.Add istället.
                 //vi har redan listan i kodblocken
                 UserManager.Users.Add(newUser);
                 //om användare register- går tillbaka till main window för att logga in

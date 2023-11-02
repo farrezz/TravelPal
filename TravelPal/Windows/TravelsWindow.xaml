@@ -29,8 +29,8 @@
 
         <Label Content="Current user: " Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="12"/>
         <TextBox Name="displayUsername" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Width="125" TextChanged="displayUsername_TextChanged" Margin="0,8,0,7" />
-        <ListBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name = "lstDestination" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" SelectionChanged="lstDestination_SelectionChanged">
-        </ListBox>
+        <ListView VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Name = "lstDestination" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" SelectionChanged="lstDestination_SelectionChanged">
+        </ListView>
         <Label Content="Travel information " Grid.Row="2" Grid.Column="1" VerticalAlignment="bottom" HorizontalAlignment="left" Margin="5" FontWeight="Black"/>
         <!--TODO: -->
         <!--Om ingen resa är markerad: MessageBox. "Choose a destination to see the details or to remove it" -->
