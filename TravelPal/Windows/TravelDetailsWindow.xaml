@@ -28,19 +28,22 @@
         <Label Content = "Your trip" FontFamily="Arial" FontSize="30" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
 
         <Label Content="Destination: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
+
         <Label Content="City: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Content="Traveller(s): " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Type of trip: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Meeting Details: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Visibility="Collapsed" Name ="lblType" Content="Type of trip: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Visibility ="Collapsed" Name="lblMeetingDetails" Content="Meeting Details: " FontFamily="Arial" FontSize="15" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbTravellers" IsEnabled="False"/>
-        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbTypeOfTrip" IsEnabled="False"/>
-        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbMeetingDetails" IsEnabled="False"/>
+        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbTypeOfTrip" IsEnabled="False" Visibility="Collapsed"/>
+        <CheckBox Grid.Column="4" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="30" Height="30" x:Name="ckAllinclusive" IsEnabled="False" Visibility="Collapsed" Margin="0,23,0,0"/>
+        <Label Content="All inclusive" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="5" VerticalAlignment="Center" FontSize="12" x:Name="lblAllinclusive" IsEnabled="False" Visibility="Collapsed" Margin="0,0,31,0"/>
+        <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbMeetingDetails" IsEnabled="False" Visibility="Collapsed"/>
         <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbCity" IsEnabled="False"/>
         <TextBox Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="200" Height="30" x:Name="txbDestination" IsEnabled="False"/>
 
+        <Button Content="Return"  Grid.Column="4" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="30" Name="btnReturn" Click="btnReturn_Click"/>
 
-     
+
 
 
 

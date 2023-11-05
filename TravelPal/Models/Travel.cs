@@ -8,12 +8,13 @@ using TravelPal;
 
 namespace TravelPal.Models
 {
-    internal class Travel
+    public class Travel
     {
         public string? Country { get; set; }
         public string? City{ get; set; }
         public int? Passangers { get; set; }
 
+        public bool IsCustom { get; set; }
 
         //Constructior som "setter" resan.
         public Travel(string country, string city, int passangers)
@@ -21,14 +22,9 @@ namespace TravelPal.Models
             Country = country;
             Passangers = passangers;
             City = city;
+
         }
-/*
-        public static List<Travel> PackingListItem{ get; set; } = new()
-        {
 
-        };
-
-   */
         public virtual string GetIno()
         {
 

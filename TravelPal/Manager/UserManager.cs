@@ -7,13 +7,21 @@ using TravelPal.Models;
 
 namespace TravelPal.Manager
 {
-    internal class UserManager
+    internal static class UserManager
     {
         public static List<IUser> Users { get; set; } = new()
         {
-            new User("User", "password"),
-            new Admin ("Admin", "password")
+            new User("user", "password")
+            {
+                Travels = new List<Travel>()
+                {
+                    new WorkTrip("Attend conference", "The Nehterlands", "Amsterdam", 4),
+                    new Vacation(true, "Spain", "Valencia", 4)
+                }
+            },
+            new Admin ("admin", "password")
         };
+
 
         //Har i uppgift att ta emot Username och password
         public static IUser? SignedInUser { get; set; }
@@ -72,6 +80,14 @@ namespace TravelPal.Manager
             SignedInUser = null;
         }
 
+        /*static UserManager()
+        {
+            WorkTrip newWorktrip = new("Attend conference", "The Nehterlands", "Amsterdam", 4);
+            IUser usr = new User("user", "password");
+            newWorktrip.TravelBelongsTo = UserManager.Users.Find(usr);
 
+        }
+        */
+ 
     }
 }

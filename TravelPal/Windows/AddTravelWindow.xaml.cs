@@ -67,52 +67,61 @@ namespace TravelPal
         }
         private void bttnAdd_Click(object sender, RoutedEventArgs e)
         {
-            // Checka alla inputs
+            try 
+            { 
             string country = cbCountry.Text;
             string city = txtbCity.Text;
             //Todo:
             //tryCatch
+            //exception: System.FormatException: 'The input string 'af' was not in a correct format.
             int passangers = int.Parse(txtbPassangers.Text);
 
-            
-            if (country != "" && city != "" && passangers > 0 && cbCountry.SelectedIndex > -1)
-            {
-                if((string)cbTypeTrip.SelectedItem == "Work")
+                if (country != "" && city != "" && passangers > 0 && cbCountry.SelectedIndex > -1)
                 {
-                    Country selectedCountry = (Country)cbCountry.SelectedItem;
+                    if ((string)cbTypeTrip.SelectedItem == "Work")
+                    {
 
-                    string meetingDetails = txbWorkTrip.Text;
+                        Country selectedCountry = (Country)cbCountry.SelectedItem;
 
-                    WorkTrip newWorkTrip = new(meetingDetails, country, city, passangers);
+                        string meetingDetails = txbWorkTrip.Text;
 
-                    //lägg till i listan i static
-                    TravelManager.Travels.Add(newWorkTrip);
-                    //samt i user listans resor.
-                    ((User)UserManager.SignedInUser).Travels.Add(newWorkTrip);
+                        WorkTrip newWorkTrip = new(meetingDetails, country, city, passangers);
+                        //newWorkTrip.TravelBelongsTo = UserManager.SignedInUser;
+                        //lägg till i listan i static
+                        TravelManager.Travels.Add(newWorkTrip);
+                        //samt i user listans resor.
+                        ((User)UserManager.SignedInUser).Travels.Add(newWorkTrip);
+                    }
+                    else if ((string)cbTypeTrip.SelectedItem == "Vacation")
+                    {
+                        Country selectedCountry = (Country)cbCountry.SelectedItem;
+
+                        bool allInclusive = (bool)ckAllinclusive.IsChecked;
+
+                        Vacation newVacation = new(allInclusive, country, city, passangers);
+                        //newVacation.TravelBelongsTo = UserManager.SignedInUser;
+                        //lägg till i statiska listan.
+                        TravelManager.Travels.Add(newVacation);
+                        //lägg till i user-specifika listan
+                       ((User)UserManager.SignedInUser).Travels.Add(newVacation);
+
+                    }
                 }
-                else if ((string)cbTypeTrip.SelectedItem == "Vacation")
-                {
-                    Country selectedCountry = (Country)cbCountry.SelectedItem;
 
-                    bool allInclusive = (bool)ckAllinclusive.IsChecked;
-
-                    Vacation newVacation = new(allInclusive, country, city, passangers);
-
-                    //lägg till i statiska listan.
-                    Manager.TravelManager.Travels.Add(newVacation);
-                    //lägg till i user-specifika listan
-                    ((User)UserManager.SignedInUser).Travels.Add(newVacation);
-
-                }
-                UpdateUI();
+                //UpdateUI();
                 TravelsWindow travelsWindow = new();
                 travelsWindow.Show();
                 Close();
                 
             }
+            //när användaren skriver in bokstäver istället för siffror.
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a number for passanger field.", "Error");
+            }
         }
 
-        private void UpdateUI()
+       /* private void UpdateUI()
         {
             // Rensa alla inputs
             cbCountry.Text = "";
@@ -130,6 +139,7 @@ namespace TravelPal
 
             }
 
-        }
+        } 
+       */
     }
 }

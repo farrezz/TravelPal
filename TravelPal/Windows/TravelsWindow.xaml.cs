@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using TravelPal.Models;
 using TravelPal.Manager;
 using System.Diagnostics;
+using System.Configuration;
+using System.Diagnostics.Metrics;
 
 namespace TravelPal
 {
@@ -22,55 +24,61 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsWindow : Window
     {
-        List<Travel> Travels = new();
+        //List<Travel> Travels = new();
+
         public TravelsWindow()
         {
             InitializeComponent();
 
-            if (UserManager.SignedInUser!.GetType() == typeof(User))
-            {
-                // Om user är inloggad så visas det i textrutan
-                User signedInUser = (User)UserManager.SignedInUser;
 
+            if (UserManager.SignedInUser.GetType() == typeof(User))
+            {
+                User signedInUser = (User)UserManager.SignedInUser;
                 displayUsername.Text = signedInUser.Username.ToString();
 
                 // Displaya land i listview för användaren
-                foreach (Travel trip in TravelManager.Travels)
-                {
-                    ListViewItem destination = new();
-                    destination.Tag= trip;
-                    destination.Content = trip.Country;
-                    lstDestination.Items.Add(destination);
-                }
-                    
-            }
-            else if (UserManager.SignedInUser!.GetType() == typeof(Admin))
-            {
+                //även default resa visas för användaren
 
-                // Om admin är inloggad så visas det i textrutan som admin
-                Admin signedInUser = (Admin)UserManager.SignedInUser;
-
-                displayUsername.Text = signedInUser.Username.ToString();
-
-                //visa user listan
                 foreach (Travel trip in TravelManager.Travels)
                 {
                     ListViewItem destination = new();
                     destination.Tag = trip;
                     destination.Content = trip.Country;
                     lstDestination.Items.Add(destination);
+
                 }
+
+            }
+            else if (UserManager.SignedInUser.GetType() == typeof(Admin))
+            {
+                Admin signedInUser = (Admin)UserManager.SignedInUser;
+                displayUsername.Text = signedInUser.Username.ToString();
+
+                bttnAddTravel.Visibility = Visibility.Hidden;
+                //List<Travel> travels = new();
+                //visa user listan
+                foreach (Travel trip in TravelManager.Travels)
+                {
+                    ListViewItem destination = new();
+
+                    destination.Tag = trip;
+                    destination.Content = trip.Country;
+                    lstDestination.Items.Add(destination);
+                }
+
+
             }
 
         }
 
         private void bttnInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("TravelPal is an app for your travels. \n  Add, delete or View details of your trip.", "Information");
+            MessageBox.Show("TravelPal is an app for your travels. \n Add, delete or View details for your trip.", "Information");
         }
 
         private void bttnAddTravel_Click(object sender, RoutedEventArgs e)
         {
+
             AddTravelWindow addTravelWindow = new();
             addTravelWindow.Show();
             Close();
@@ -79,9 +87,25 @@ namespace TravelPal
 
         private void bttnDetails_Click(object sender, RoutedEventArgs e)
         {
-            TravelDetailsWindow travelDetailsWindow = new();
-            travelDetailsWindow.Show(); 
-            Close();
+
+            ListViewItem selectedItem = (ListViewItem)lstDestination.SelectedItem;
+
+            if (selectedItem == null)
+            {
+                MessageBox.Show("Choose a country from the list to see more details", "Warning");
+            }
+            else
+            {
+                Travel travel = (Travel)selectedItem.Tag;
+
+                TravelDetailsWindow travelDetailsWindow = new(travel);
+                travelDetailsWindow.Show();
+                Close();
+
+
+            }
+
+
         }
 
         private void displayUsername_TextChanged(object sender, TextChangedEventArgs e)
@@ -93,63 +117,6 @@ namespace TravelPal
         {
 
         }
-
-        private void UpdateUi()
-        {
-            // Rensa listan
-            //lstDestination.Items.Clear();
-
-            // Hämta alla employees i "databasen"
-            List<Travel> travels = Travels;
-
-            // Toggla "Show Details"-, och "Remove"-knappen beroende på om vi har personer i databasen
-           /* if (travels.Count > 0)
-            {
-                btnShowDetails.IsEnabled = true;
-                btnRemove.IsEnabled = true;
-            }
-            else
-            {
-                btnShowDetails.IsEnabled = false;
-                btnRemove.IsEnabled = false;
-            }
-           */
-
-            // Lägg till varje employee från databasen i listan
-            foreach (Travel Travel in travels)
-            {
-                ListViewItem item = new();
-
-                item.Content = Travel.Country;
-
-               /* if (Travel.GetType() == typeof(Employee))
-                {
-                    item.Content += " | ";
-
-                    Employee employee = (Employee)person;
-
-                    item.Content += employee.Department.ToString();
-                    item.Tag = employee;
-                }
-                else
-                {
-                    item.Content += " | Customer";
-                    item.Tag = person;
-                }
-               */
-                lstDestination.Items.Add(item);
-            }
-
-            // Rensa alla inputs
-            /*txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtAge.Text = "";
-            txtBio.Text = "";
-            txtSalary.Text = "";
-            cbDepartments.SelectedIndex = -1;
-            */
-        }
-
         private void bttSignOut_Click(object sender, RoutedEventArgs e)
         {
             // Logga ut användaren
@@ -162,19 +129,50 @@ namespace TravelPal
             // Stäng detta fönster
             Close();
         }
-
         private void bttnDelete_Click(object sender, RoutedEventArgs e)
         {
+
             // Kolla vilket item som är selectat i listan
             ListViewItem selectedItem = (ListViewItem)lstDestination.SelectedItem;
-            // Ta bort det itemet från listView:en
+            Travel travels = (Travel)selectedItem.Tag;
+            // UserManager.SignInUser("user", "password");
+            //IUser currentUser = UserManager.SignedInUser;
+            // Check if the selected item's Tag is a Travel object
+            
+            if (selectedItem == null)
+            {
+                MessageBox.Show("Choose a country from the list to delete", "Warning");
+            }
+            else if(UserManager.SignedInUser is Admin)
+            {
+                TravelManager.RemoveTravel(travels);
+               // ((User)UserManager.SignedInUser).Remove(travels);
+
+            }
+            else
+            {
+                MessageBox.Show("You have to be admin to remove a travel", "Warning");
+            }
+
+
+            //User user = new("user", "password");
+
+            //user.Travels.Remove(travels);
+            // user = new(meetingDetails, country, city, passangers);
+            //newWorkTrip.TravelBelongsTo = UserManager.SignedInUser;
+            //lägg till i listan i static
+
+            //samt i user listans reso
+            //((User)UserManager.SignedInUser).Travels.Remove(travels);
+
+
             lstDestination.Items.Remove(selectedItem);
-
-            List<Travel> travels = (List<Travel>)lstDestination.ItemsSource;
-            travels.Remove((Travel)selectedItem.Content);
-
-            lstDestination.UpdateLayout(); 
-
         }
+
+
     }
+
 }
+   
+    
+
