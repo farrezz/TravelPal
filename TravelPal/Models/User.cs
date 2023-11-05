@@ -30,7 +30,7 @@ namespace TravelPal.Models
         }
 
         // en metod som tar bort ett elemnt i listan travels.
-        public void Remove(Travel travel)
+        public void RemoveTravel(Travel travel)
         {
             Travels.Remove(travel);
 

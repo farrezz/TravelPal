@@ -10,12 +10,11 @@ namespace TravelPal.Manager
     internal static class TravelManager
     {
 
-        public static List<Travel> Travels { get; set; } = UserManager.Users.Where(u => u.GetType() == typeof(User)).SelectMany(u => ((User)u).Travels).ToList();
-
-       
-        //En metod som lägger till resor i "travels" listan. 
+        public static List<Travel> Travels { get; set; } = UserManager.Users.Where(u => u.GetType() == typeof(User)).SelectMany(u => ((User)u).Travels).ToList(); //Albin hjälpte mig.
+ 
+        //En metod som lägger till resor i "Travels" listan. 
         //Parametern  tar emot objekt - Travel med en "variabel" namn travel. 
-        //Här läggs resan till listan travels.
+        //Här läggs resan till listan Travels.
         
         public static void AddTravel(Travel travel)
         {

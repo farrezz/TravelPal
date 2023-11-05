@@ -89,8 +89,9 @@ namespace TravelPal
                         //newWorkTrip.TravelBelongsTo = UserManager.SignedInUser;
                         //lägg till i listan i static
                         TravelManager.Travels.Add(newWorkTrip);
-                        //samt i user listans resor.
+                        //samt i user listans resor
                         ((User)UserManager.SignedInUser).Travels.Add(newWorkTrip);
+
                     }
                     else if ((string)cbTypeTrip.SelectedItem == "Vacation")
                     {

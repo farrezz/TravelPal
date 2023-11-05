@@ -73,11 +73,14 @@ namespace TravelPal
             {
                 User newUser = new(username, password);
 
-                List<IUser> Users = new();
+                //List<IUser> Users = new();
+               
                 // Skapa en user
                 // Lägg till usern i listan
                 //vi har redan listan i kodblocken
                 UserManager.Users.Add(newUser);
+
+
                 //om användare register- går tillbaka till main window för att logga in
                 MainWindow mainWindow = new();
                 mainWindow.Show();

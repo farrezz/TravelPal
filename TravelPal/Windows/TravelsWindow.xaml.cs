@@ -138,23 +138,51 @@ namespace TravelPal
             // UserManager.SignInUser("user", "password");
             //IUser currentUser = UserManager.SignedInUser;
             // Check if the selected item's Tag is a Travel object
-            
+            //om användaren inte har valt en resa att radera men inte valt någontin
+
             if (selectedItem == null)
             {
                 MessageBox.Show("Choose a country from the list to delete", "Warning");
             }
-            else if(UserManager.SignedInUser is Admin)
+            if (UserManager.SignedInUser is User)
             {
                 TravelManager.RemoveTravel(travels);
-               // ((User)UserManager.SignedInUser).Remove(travels);
+                //User user = UserManager.SignedInUser as User;
+                //user.Travels.Remove(travels);
+              
+            }
+            else if(UserManager.SignedInUser is Admin)
+            {
+                //tar bort från static listan
+               TravelManager.RemoveTravel(travels);
+                //denna kod har jag inte kunna lösa och vet inte hur. Därav utkommenterat.
+                //((User)UserManager.SignedInUser).RemoveTravel(travels);
+                
+                //Foreach där jag har försökt få bort resan från non static listan. (fungerar inte som det ska. Därav utkommenterat)
+                /*foreach (var country in UserManager.Users)
+                   {
+                    if (country is User)
+                    {
+                        User user = (User)country;
 
+                        if (user.Travels.Contains(travels)) ;
+                        {
+                            // Ta bort resan från "backend:en"
+                            user.Travels.Remove(travels);
+                            break;
+                           
+                        }
+                    }
+                 }
+                */
+
+
+               
             }
             else
             {
                 MessageBox.Show("You have to be admin to remove a travel", "Warning");
             }
-
-
             //User user = new("user", "password");
 
             //user.Travels.Remove(travels);
@@ -167,6 +195,24 @@ namespace TravelPal
 
 
             lstDestination.Items.Remove(selectedItem);
+           
+        }
+
+
+        private void UpdateUi()
+        {
+            //lstDestination.Items.Clear();
+
+            //Uppdatera användarens resor i listview.
+            if (UserManager.SignedInUser is User travels) 
+            {
+                foreach (Travel travel in travels.Travels) 
+                {
+                    lstDestination.Items.Add(travel);
+                }
+   
+            }
+  
         }
 
 

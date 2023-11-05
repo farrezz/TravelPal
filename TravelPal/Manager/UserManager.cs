@@ -64,7 +64,7 @@ namespace TravelPal.Manager
             {
                 if (user.Username == username && user.Password == password)
                 {
-                    // User found!
+                    //andvändare hittad
 
                     SignedInUser = user;
 
@@ -79,15 +79,6 @@ namespace TravelPal.Manager
         {
             SignedInUser = null;
         }
-
-        /*static UserManager()
-        {
-            WorkTrip newWorktrip = new("Attend conference", "The Nehterlands", "Amsterdam", 4);
-            IUser usr = new User("user", "password");
-            newWorktrip.TravelBelongsTo = UserManager.Users.Find(usr);
-
-        }
-        */
  
     }
 }

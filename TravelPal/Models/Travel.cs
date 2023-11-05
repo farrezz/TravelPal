@@ -14,7 +14,6 @@ namespace TravelPal.Models
         public string? City{ get; set; }
         public int? Passangers { get; set; }
 
-        public bool IsCustom { get; set; }
 
         //Constructior som "setter" resan.
         public Travel(string country, string city, int passangers)
@@ -24,13 +23,5 @@ namespace TravelPal.Models
             City = city;
 
         }
-
-        public virtual string GetIno()
-        {
-
-            //TODO:
-            return $"Destination: {Country}, city:  {City}, Traveller(s): {Passangers}";
-        }
-
     };
 }
